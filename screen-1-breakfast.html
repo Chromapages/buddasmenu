@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920">
+  <title>Budda's Hawaiian — Breakfast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    /* =============================================
+       FRANCHISE DESIGN SYSTEM
+       ============================================= */
+    :root {
+      --bg: #fff8e8;
+      --brand: #54bfa5;
+      --header: #1c5f56;
+      --gold-bright: #624831;
+      --gold-dim: rgba(212, 168, 83, 0.15);
+      --text: #56351a;
+      --text-protein: #fff8e8;
+      --text-muted: #8e7b68;
+      --badge-orange: #d36200;
+      --font: 'Outfit', system-ui, sans-serif;
+      --w: 1920px;
+      --h: 1080px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: var(--w);
+      height: var(--h);
+      overflow: hidden;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      border: 2px solid var(--header);
+      box-sizing: border-box;
+    }
+
+    /* =============================================
+       BRAND STRIP (50px)
+       ============================================= */
+    .brand-strip {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      border-bottom: 2px solid var(--gold-dim);
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--bg);
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-tagline {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* =============================================
+       MAIN CONTENT: 3 EQUAL COLUMNS
+       ============================================= */
+    .menu-board {
+      height: var(--h);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      padding: 0;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      padding: 32px 40px;
+      overflow: hidden;
+    }
+
+    .column:not(:last-child) {
+      border-right: 1px solid var(--gold-dim);
+    }
+
+    .video-column {
+      padding: 0;
+    }
+
+    .video-column .hero-video {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      max-height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* =============================================
+       CATEGORY HEADER
+       ============================================= */
+    .cat-header {
+      font-size: 40px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      color: var(--header);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      border-bottom: 3px solid var(--header);
+    }
+
+    .cat-desc {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: -18px;
+      margin-bottom: 16px;
+    }
+
+    .cat-sub {
+      font-size: 28px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      color: var(--header);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+      margin-top: 28px;
+      border-bottom: 2px solid var(--header);
+    }
+
+    /* =============================================
+       HERO IMAGE
+       ============================================= */
+    .hero-photo {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      margin-bottom: 24px;
+    }
+
+    .hero-photo-sm {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    /* =============================================
+       MENU ITEM ROWS
+       ============================================= */
+    .item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gold-dim);
+    }
+
+    .item-row:last-child {
+      border-bottom: none;
+    }
+
+    .item-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex: 1;
+      padding-right: 16px;
+    }
+
+    .item-name {
+      font-size: 28px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .item-desc {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .item-cal {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-muted);
+      opacity: 0.7;
+    }
+
+    .item-price {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--gold-bright);
+      white-space: nowrap;
+    }
+
+    /* =============================================
+       BADGES
+       ============================================= */
+    .badge {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 6px;
+      line-height: 1;
+      vertical-align: middle;
+    }
+
+    .badge-new {
+      background: var(--badge-orange);
+      color: #FFF;
+    }
+
+    .badge-popular {
+      background: var(--header);
+      color: var(--bg);
+    }
+
+    /* =============================================
+       ROLLS FEATURE
+       ============================================= */
+    .rolls-feature {
+      background: var(--brand);
+      padding: 24px;
+      margin-top: auto;
+    }
+
+    .rolls-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--bg);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .rolls-flavors {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .tier-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 22px;
+    }
+
+    .tier-qty {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .tier-price {
+      font-weight: 700;
+      color: var(--gold-bright);
+    }
+
+    /* =============================================
+       DRINKS SECTION
+       ============================================= */
+    .drink-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--gold-dim);
+      font-size: 28px;
+    }
+
+    .drink-row:last-child {
+      border-bottom: none;
+    }
+
+    .drink-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .drink-price {
+      font-weight: 700;
+      color: var(--gold-bright);
+    }
+
+    /* =============================================
+       PROTEIN OPTIONS
+       ============================================= */
+    .protein-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .protein-tag {
+      font-size: 25px;
+      font-weight: 600;
+      color: var(--text-protein);
+      padding: 12px 18px;
+      border: 1px solid var(--gold-dim);
+      background: var(--brand);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .protein-tag.popular {
+      background: #e9c559;
+      border-color: var(#e9c559);
+    }
+
+    .protein-tag.popular .protein-tag-content {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    .protein-tag.popular .protein-number {
+      background: var(--text);
+      color: var(--text-protein);
+    }
+
+    .protein-tag-content {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .protein-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--header);
+      color: var(--bg);
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .protein-tag.popular .protein-number {
+      background: var(#e9c559);
+      color: var(--text-protein);
+    }
+
+    .fan-fave-badge {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--bg);
+      background: var(--badge-orange);
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENU BOARD -->
+  <main class="menu-board">
+
+    <!-- COLUMN 1: BREAKFAST -->
+    <section class="column">
+      <h1 class="cat-header">Breakfast</h1>
+
+      <img src="img/breakfast.png" alt="Breakfast Bento with spam, eggs, rice and butter roll" class="hero-photo"
+        style="height: 264px;">
+
+      <div class="item-row">
+        <div class="item-left">
+          <div class="item-name">
+            Breakfast Bento
+            <span class="badge badge-popular">Popular</span>
+          </div>
+          <p class="item-desc">eggs, rice, mac salad, and 1 protein</p>
+        </div>
+        <div class="item-price">$13.99</div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-left">
+          <div class="item-name">Breakfast Sandwich</div>
+        </div>
+        <div class="item-price">$8.99</div>
+      </div>
+
+      <h2 class="cat-sub">Choose Your Protein <br><span class="badge badge-new">2x Meat +$2.99</span> <span
+          class="badge badge-new">3x Meat +$3.99</span></h2>
+      <div class="protein-row">
+        <span class="protein-tag">
+          <span class="protein-tag-content">
+            <span class="protein-number">1</span>
+            <span>Egg & Cheese</span>
+          </span>
+        </span>
+        <span class="protein-tag">
+          <span class="protein-tag-content">
+            <span class="protein-number">2</span>
+            <span>Bacon</span>
+          </span>
+          <span class="badge badge-new">Popular</span>
+        </span>
+        <span class="protein-tag">
+          <span class="protein-tag-content">
+            <span class="protein-number">3</span>
+            <span>Sausage</span>
+          </span>
+        </span>
+        <span class="protein-tag">
+          <span class="protein-tag-content">
+            <span class="protein-number">4</span>
+            <span>Spam</span>
+          </span>
+        </span>
+        <span class="protein-tag">
+          <span class="protein-tag-content">
+            <span class="protein-number">5</span>
+            <span>Portuguese Sausage</span>
+          </span>
+        </span>
+      </div>
+    </section>
+
+    <!-- COLUMN 2: CLASSICS -->
+    <section class="column">
+      <h2 class="cat-sub">Classics</h2>
+
+      <img src="img/loco-moco.png" alt="Loco Moco with rice, beef patty, gravy and eggs" class="hero-photo"
+        style="height: 264px;">
+
+      <div class="item-row">
+        <div class="item-left">
+          <div class="item-name">Loco Moco <span class="badge badge-popular">Popular</span></div>
+        </div>
+        <div class="item-price">$14.99</div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-left">
+          <div class="item-name">French Toast</div>
+        </div>
+        <div class="item-price">$9.99</div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-left">
+          <div class="item-name">Biscuits & Gravy</div>
+        </div>
+        <div class="item-price">$7.99</div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-left">
+          <div class="item-name">Keiki Bento <span class="badge badge-popular">Kids</span></div>
+        </div>
+        <div class="item-price">$7.99</div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-left">
+          <div class="item-name">Spam Musubi</div>
+        </div>
+        <div class="item-price">$4.99</div>
+      </div>
+
+
+
+      <h2 class="cat-sub">Sides & Extras</h2>
+      <div class="drink-row">
+        <span class="drink-name">Extra Egg</span>
+        <span class="drink-price">$1.99</span>
+      </div>
+      <div class="drink-row">
+        <span class="drink-name">Extra Meat</span>
+        <span class="drink-price">$3.99</span>
+      </div>
+      <div class="drink-row">
+        <span class="drink-name">Keiki Spam Rice</span>
+        <span class="drink-price">$7.99</span>
+      </div>
+    </section>
+
+    <!-- COLUMN 3: BAKERY & BEVERAGES -->
+    <section class="column video-column">
+      <video class="hero-video" autoplay loop muted playsinline>
+        <source src="img/hero.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+
+    </section>
+
+  </main>
+
+</body>
+
+</html>
