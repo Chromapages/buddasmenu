@@ -47,7 +47,7 @@
     }
 
     /* =============================================
-       MAIN CONTENT: 3 EQUAL COLUMNS
+       MAIN CONTENT: DRINKS SPAN 2 COLS, DESSERTS 1 COL
        ============================================= */
     .menu-board {
       height: var(--h);
@@ -66,6 +66,95 @@
 
     .column:not(:last-child) {
       border-right: 1px solid var(--gold-dim);
+    }
+
+    /* Drinks section spans 2 columns */
+    .drinks-section {
+      grid-column: 1 / 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 24px;
+      padding: 32px 40px;
+      border-right: 1px solid var(--gold-dim);
+    }
+
+    .drinks-col-left,
+    .drinks-col-right {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drinks-col-right {
+      border-left: 1px solid var(--gold-dim);
+      padding-left: 24px;
+    }
+
+    .drinks-col-left .cat-sub:first-child,
+    .drinks-col-right .cat-sub:first-child {
+      margin-top: 0;
+    }
+
+    /* Kai Po Kava internal 2-col sub-grid */
+    .kava-subsections {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 12px;
+    }
+
+    .kava-sub-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kava-sub-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .kava-sub-group .drink-row {
+      font-size: 26px;
+    }
+
+    .kava-sub-group .drink-row.sub-item {
+      padding-left: 16px;
+      font-size: 20px;
+    }
+
+    /* =============================================
+       KAVA FLAVOR PILLS
+       ============================================= */
+    .kava-flavors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px 0;
+    }
+
+    .kava-flavor-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(212, 168, 83, 0.4);
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .kava-flavor-tag .dairy-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .kava-flavor-tag .dairy-dot.non-dairy {
+      background: var(--brand);
+    }
+
+    .kava-flavor-tag .dairy-dot.dairy {
+      background: var(--badge-orange);
     }
 
     /* =============================================
@@ -94,6 +183,19 @@
       margin-bottom: 14px;
       margin-top: 22px;
       border-bottom: 2px solid var(--header);
+    }
+
+    .cat-sub-alt {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-top: 16px;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--gold-dim);
     }
 
     /* =============================================
@@ -257,43 +359,53 @@
     }
 
     /* =============================================
-       IMAGE CAROUSEL COLUMN
+       TO GO CUPS GRID (aligned with dessert cards)
        ============================================= */
-    .carousel-column {
-      padding: 0;
-      position: relative;
-      overflow: hidden;
+    .togo-cups-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
     }
 
-    .carousel-track {
-      position: relative;
-      width: 100%;
-      height: 100%;
+    .togo-cup-card {
+      background: var(--gold-dim);
+      border-radius: 10px;
+      padding: 10px 8px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 72px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .carousel-slide {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      animation: carousel-fade 48s infinite;
+    .togo-cup-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(86, 53, 26, 0.15);
+      cursor: pointer;
     }
 
-    .carousel-slide:nth-child(1) { animation-delay: 0s; }
-    .carousel-slide:nth-child(2) { animation-delay: 8s; }
-    .carousel-slide:nth-child(3) { animation-delay: 16s; }
-    .carousel-slide:nth-child(4) { animation-delay: 24s; }
-    .carousel-slide:nth-child(5) { animation-delay: 32s; }
-    .carousel-slide:nth-child(6) { animation-delay: 40s; }
+    .togo-cup-card .togo-cup-name {
+      font-size: 22px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
 
-    @keyframes carousel-fade {
-      0%    { opacity: 0; }
-      5%    { opacity: 1; }
-      16%   { opacity: 1; }
-      21%   { opacity: 0; }
-      100%  { opacity: 0; }
+    .togo-cup-card .togo-cup-price {
+      font-size: 25px;
+      font-weight: 700;
+      color: var(--gold-bright);
+    }
+
+    .dessert-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(86, 53, 26, 0.15);
+      cursor: pointer;
     }
   </style>
 </head>
@@ -303,72 +415,123 @@
   <!-- MENU BOARD -->
   <main class="menu-board">
 
-    <!-- COLUMN 1: DRINKS -->
-    <section class="column">
-      <h1 class="cat-header">Beverages</h1>
+    <!-- DRINKS: Spans 2 columns (cols 1 & 2) -->
+    <section class="drinks-section">
 
-      <div class="drink-row">
-        <span class="drink-name">Hawaiian Sun <span class="badge badge-popular">Popular</span></span>
-        <span class="drink-price">$2.49</span>
-      </div>
-      <div class="drink-row">
-        <span class="drink-name">Koko Samoa</span>
-        <span class="drink-price">$5.99</span>
-      </div>
-      <div class="drink-row">
-        <span class="drink-name">Passion Fruit Juice<span class="badge badge-new">New</span></span>
-        <span class="drink-price">$5.99</span>
-      </div>
-      <div class="drink-row">
-        <span class="drink-name">Orange Juice</span>
-        <span class="drink-price">$2.99</span>
-      </div>
-      <div class="drink-row">
-        <span class="drink-name">Bottled Water</span>
-        <span class="drink-price">$1.99</span>
+      <!-- Column 1: Left drinks -->
+      <div class="drinks-col-left">
+        <h1 class="cat-header">Beverages</h1>
+
+        <div class="drink-row">
+          <span class="drink-name">Hawaiian Sun <span class="badge badge-popular">Popular</span></span>
+          <span class="drink-price">$2.49</span>
+        </div>
+        <div class="drink-row">
+          <span class="drink-name">Koko Samoa</span>
+          <span class="drink-price">$5.99</span>
+        </div>
+        <div class="drink-row">
+          <span class="drink-name">Passion Fruit Juice <span class="badge badge-new">New</span></span>
+          <span class="drink-price">$5.99</span>
+        </div>
+        <div class="drink-row">
+          <span class="drink-name">Canned Soda</span>
+          <span class="drink-price">$2.49</span>
+        </div>
+        <div class="drink-row">
+          <span class="drink-name">Bottled Water</span>
+          <span class="drink-price">$1.99</span>
+        </div>
+
+        <h2 class="cat-sub">Kai Po Kava</h2>
+        <div class="kava-sub-group full-width">
+          <div class="drink-row">
+            <span class="drink-name">Flavored Kava Shots</span>
+            <span class="drink-price">$4.99</span>
+          </div>
+          <div class="kava-flavors">
+            <span class="kava-flavor-tag">POG <span class="dairy-dot non-dairy" title="Non-dairy"></span></span>
+            <span class="kava-flavor-tag">White Chocolate <span class="dairy-dot dairy" title="Contains dairy"></span></span>
+            <span class="kava-flavor-tag">Caramel Chai <span class="dairy-dot dairy" title="Contains dairy"></span></span>
+            <span class="kava-flavor-tag">Mocha <span class="dairy-dot dairy" title="Contains dairy"></span></span>
+            <span class="kava-flavor-tag">Horchata <span class="dairy-dot dairy" title="Contains dairy"></span></span>
+          </div>
+        </div>
+
+        <div class="kava-subsections">
+          <div class="kava-sub-group full-width">
+            <h3 class="cat-sub-alt">To Go Cups</h3>
+            <div class="togo-cups-grid">
+              <div class="togo-cup-card">
+                <span class="togo-cup-name">Regular Strength</span>
+                <span class="togo-cup-price">$12</span>
+              </div>
+              <div class="togo-cup-card">
+                <span class="togo-cup-name">Strong Strength</span>
+                <span class="togo-cup-price">$20</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="kava-sub-group full-width">
+            <h3 class="cat-sub-alt">Kava Vessels</h3>
+            <div class="togo-cups-grid">
+              <div class="togo-cup-card">
+                <span class="togo-cup-name">2L Kava Bowl</span>
+                <span class="togo-cup-price">$30</span>
+              </div>
+              <div class="togo-cup-card">
+                <span class="togo-cup-name">4L Kava Bowl</span>
+                <span class="togo-cup-price">$50</span>
+              </div>
+              <div class="togo-cup-card">
+                <span class="togo-cup-name">2L To Go Bag</span>
+                <span class="togo-cup-price">$35</span>
+              </div>
+              <div class="togo-cup-card">
+                <span class="togo-cup-name">4L To Go Bag</span>
+                <span class="togo-cup-price">$55</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <h2 class="cat-sub">Island Shaved Ice</h2>
-      <div class="drink-row">
-        <span class="drink-name">Classic Shaved Ice</span>
-        <span class="drink-price">$5.99</span>
-      </div>
-      <div class="drink-row">
-        <span class="drink-name">Volcano Bowl</span>
-        <span class="drink-price">$7.99</span>
-      </div>
-      <div class="drink-row">
-        <span class="drink-name">Sunrise Ice</span>
-        <span class="drink-price">$6.99</span>
+      <!-- Column 2: Chasers -->
+      <div class="drinks-col-right">
+        <h2 class="cat-sub">Chasers</h2>
+        <div class="togo-cups-grid">
+          <div class="togo-cup-card">
+            <span class="togo-cup-name">Bowl of Candy</span>
+            <span class="togo-cup-price">$5</span>
+          </div>
+          <div class="togo-cup-card">
+            <span class="togo-cup-name">Small Bag of Chips</span>
+            <span class="togo-cup-price">$2</span>
+          </div>
+          <div class="togo-cup-card">
+            <span class="togo-cup-name">Soda</span>
+            <span class="togo-cup-price">$2</span>
+          </div>
+          <div class="togo-cup-card">
+            <span class="togo-cup-name">Water</span>
+            <span class="togo-cup-price">$1</span>
+          </div>
+        </div>
+
+        <div class="kava-sub-group full-width">
+          <h3 class="cat-sub-alt">All You Can Drink <span class="badge badge-new">Night Special</span></h3>
+          <div class="drink-row">
+            <span class="drink-name">Per Person — 8pm to 12 Midnight</span>
+            <span class="drink-price">$40</span>
+          </div>
+        </div>
       </div>
 
-      <h2 class="cat-sub">Fresh Juices & Lemonades</h2>
-      <div class="drink-row">
-        <span class="drink-name">Fresh Lemonade</span>
-        <span class="drink-price">$4.49</span>
-      </div>
-      <div class="drink-row">
-        <span class="drink-name">Passion Fruit Juice</span>
-        <span class="drink-price">$5.99</span>
-      </div>
-      <div class="drink-row">
-        <span class="drink-name">Pineapple Crush</span>
-        <span class="drink-price">$5.49</span>
-      </div>
-
-      <h2 class="cat-sub"></h2>
-    
-      <div class="drink-row">
-        <span class="drink-name">Coca-Cola</span>
-        <span class="drink-price">$2.49</span>
-      </div>
-      <div class="drink-row">
-        <span class="drink-name">Diet Coke</span>
-        <span class="drink-price">$2.49</span>
-      </div>
     </section>
 
-    <!-- COLUMN 2: DESSERTS -->
+    <!-- COLUMN 3: DESSERTS -->
     <section class="column">
       <h1 class="cat-header">Desserts</h1>
 
@@ -436,18 +599,6 @@
           <span class="dessert-name">Brownie</span>
           <span class="dessert-price">$3.99</span>
         </div>
-      </div>
-    </section>
-
-    <!-- COLUMN 3: ROTATING HERO IMAGES -->
-    <section class="column carousel-column">
-      <div class="carousel-track">
-        <img class="carousel-slide" src="img/drink-thai-tea-hero.png" alt="Thai Tea">
-        <img class="carousel-slide" src="img/dessert-ube-cake-hero.png" alt="Ube Cake">
-        <img class="carousel-slide" src="img/drink-shave-ice-hero.png" alt="Shave Ice">
-        <img class="carousel-slide" src="img/dessert-butter-mochi-hero.png" alt="Butter Mochi">
-        <img class="carousel-slide" src="img/drink-taro-latte-hero.png" alt="Taro Latte">
-        <img class="carousel-slide" src="img/dessert-haupia-hero.png" alt="Haupia Cake">
       </div>
     </section>
 
