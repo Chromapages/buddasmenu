@@ -407,6 +407,13 @@
       box-shadow: 0 4px 12px rgba(86, 53, 26, 0.15);
       cursor: pointer;
     }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
   </style>
 </head>
 
@@ -498,35 +505,12 @@
         </div>
       </div>
 
-      <!-- Column 2: Chasers -->
+      <!-- Column 2: Video -->
       <div class="drinks-col-right">
-        <h2 class="cat-sub">Chasers</h2>
-        <div class="togo-cups-grid">
-          <div class="togo-cup-card">
-            <span class="togo-cup-name">Bowl of Candy</span>
-            <span class="togo-cup-price">$5</span>
-          </div>
-          <div class="togo-cup-card">
-            <span class="togo-cup-name">Small Bag of Chips</span>
-            <span class="togo-cup-price">$2</span>
-          </div>
-          <div class="togo-cup-card">
-            <span class="togo-cup-name">Soda</span>
-            <span class="togo-cup-price">$2</span>
-          </div>
-          <div class="togo-cup-card">
-            <span class="togo-cup-name">Water</span>
-            <span class="togo-cup-price">$1</span>
-          </div>
-        </div>
-
-        <div class="kava-sub-group full-width">
-          <h3 class="cat-sub-alt">All You Can Drink <span class="badge badge-new">Night Special</span></h3>
-          <div class="drink-row">
-            <span class="drink-name">Per Person — 8pm to 12 Midnight</span>
-            <span class="drink-price">$40</span>
-          </div>
-        </div>
+        <video class="hero-video" autoplay loop muted playsinline>
+          <source src="img/hero.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
 
     </section>
@@ -535,72 +519,71 @@
     <section class="column">
       <h1 class="cat-header">Desserts</h1>
 
-      <h2 class="cat-sub">Plated Cakes</h2>
-      <div class="drink-row">
-        <span class="drink-name">Ube Cake <span class="badge badge-popular">Popular</span></span>
-        <span class="drink-price">$7.99</span>
-      </div>
-      <div class="drink-row">
-        <span class="drink-name">Guava Cake</span>
-        <span class="drink-price">$7.99</span>
-      </div>
-      <div class="drink-row">
-        <span class="drink-name">Haupia Cake <span class="badge badge-new">New</span></span>
-        <span class="drink-price">$7.99</span>
-      </div>
-      <div class="drink-row">
-        <span class="drink-name">Toasted Coconut</span>
-        <span class="drink-price">$6.99</span>
+      <h2 class="cat-sub">Cakes</h2>
+      <div class="kava-sub-group full-width">
+        <div class="drink-row">
+          <span class="drink-name">Slice of Cake</span>
+          <span class="drink-price">$7.99</span>
+        </div>
+        <div class="kava-flavors">
+          <span class="kava-flavor-tag">Ube</span>
+          <span class="kava-flavor-tag">Guava</span>
+          <span class="kava-flavor-tag">Haupia</span>
+          <span class="kava-flavor-tag">Toasted Coconut</span>
+        </div>
       </div>
 
       <h2 class="cat-sub">Pastries & Danish</h2>
-      <div class="desserts-grid">
-        <div class="dessert-card">
-          <span class="dessert-name">Danish</span>
-          <span class="dessert-price">$5.99</span>
+      <div class="kava-sub-group full-width">
+        <div class="drink-row">
+          <span class="drink-name">Danish</span>
+          <span class="drink-price">$5.99</span>
         </div>
-        <div class="dessert-card">
-          <span class="dessert-name">Turnover</span>
-          <span class="dessert-price">$5.99</span>
+        <div class="kava-flavors">
+          <span class="kava-flavor-tag">Pineapple</span>
+          <span class="kava-flavor-tag">Guava</span>
+          <span class="kava-flavor-tag">Coconut</span>
+          <span class="kava-flavor-tag">Lilikoi</span>
         </div>
-        <div class="dessert-card full-width">
-          <div class="dessert-info-left">
-            <span class="dessert-name">Pogo's</span>
-          </div>
-          <span class="dessert-price">$4.99</span>
+      </div>
+      <div class="kava-sub-group full-width">
+        <div class="drink-row">
+          <span class="drink-name">Cookies</span>
+          <span class="drink-price">$5.99</span>
+        </div>
+        <div class="kava-flavors">
+          <span class="kava-flavor-tag">Chocolate Chip</span>
+          <span class="kava-flavor-tag">Macadamia Nut</span>
+          <span class="kava-flavor-tag">Ube Shortcake</span>
         </div>
       </div>
 
-      <h2 class="cat-sub">Frozen Treats</h2>
-      <div class="desserts-grid">
-        <div class="dessert-card">
-          <span class="dessert-name">Butter Mochi</span>
-          <span class="dessert-price">$5.99</span>
-        </div>
-        <div class="dessert-card">
-          <span class="dessert-name">Shave Ice Cup</span>
-          <span class="dessert-price">$4.99</span>
-        </div>
-        <div class="dessert-card full-width">
-          <div class="dessert-info-left">
-            <span class="dessert-name">Ice Cream Cup</span>
-          </div>
-          <span class="dessert-price">$4.99</span>
+      <h2 class="cat-sub">Chasers</h2>
+      <div class="kava-sub-group full-width">
+        <div class="drink-row">
+          <span class="drink-name">Bowl of Candy</span>
+          <span class="drink-price">$5</span>
         </div>
       </div>
-
-      <h2 class="cat-sub">Cookies & Bars</h2>
-      <div class="desserts-grid">
-        <div class="dessert-card">
-          <span class="dessert-name">Cookies (3-pack)</span>
-          <span class="dessert-price">$4.99</span>
-        </div>
-        <div class="dessert-card">
-          <span class="dessert-name">Brownie</span>
-          <span class="dessert-price">$3.99</span>
+      <div class="kava-sub-group full-width">
+        <div class="drink-row">
+          <span class="drink-name">Small Bag of Chips</span>
+          <span class="drink-price">$2</span>
         </div>
       </div>
-    </section>
+      <div class="kava-sub-group full-width">
+        <div class="drink-row">
+          <span class="drink-name">Soda</span>
+          <span class="drink-price">$2</span>
+        </div>
+      </div>
+      <div class="kava-sub-group full-width">
+        <div class="drink-row">
+          <span class="drink-name">Water</span>
+          <span class="drink-price">$1</span>
+        </div>
+      </div>
+          </section>
 
   </main>
 
